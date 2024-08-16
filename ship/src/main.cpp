@@ -210,6 +210,15 @@ int main(int argc, char** argv)
             }
         }
 
+        auto builder = vsg::Builder::create();
+        builder->options = options;
+
+        vsg::GeometryInfo geomInfo;
+        vsg::StateInfo stateInfo;
+
+        group->addChild(builder->createBox(geomInfo, stateInfo));
+        // geomInfo.position += geomInfo.dx * 1.5f;
+
         if (group->children.empty())
         {
             return 1;

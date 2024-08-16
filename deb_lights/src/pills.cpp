@@ -275,7 +275,8 @@ int main(int argc, char** argv)
     {
         auto t = std::chrono::duration<double, std::chrono::seconds::period>(vsg::clock::now() - startTime).count();
         grab_node->matrix = vsg::translate(vsg::vec3(0.0f, sin(t), 0.0f))
-            * vsg::scale(vsg::vec3(.2f, .2f, .2f));
+            * vsg::scale(vsg::vec3(.2f, .2f, .2f)) * vsg::rotate(vsg::radians(45.0f * (float)sin(t)), 0.0f, 1.0f, 0.0f);
+        // grab_node->matrix = vsg::rotate(vsg::radians(45.0f * (float)sin(t)), 0.0f, 1.0f, 0.0f);
 
         // pass any events into EventHandlers assigned to the Viewer
         viewer->handleEvents();
