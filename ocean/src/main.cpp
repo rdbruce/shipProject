@@ -344,9 +344,11 @@ int main(int argc, char** argv)
         pCentre = (pBounds.min + pBounds.max) * 0.5;
 
         lookAt->center = pCentre;
+        lookAt->up = vsg::dvec3(0.0, 0.0, 1.0);
 
         pLookAt->eye =  pCentre;
         pLookAt->center =  sCentre;
+        pLookAt->up = vsg::dvec3(0.0, 0.0, 1.0);
 
         // pass any events into EventHandlers assigned to the Viewer
         viewer->handleEvents();
